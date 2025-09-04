@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+   <script>
+    if (/Mobi|Android|iPhone|iPad|iPod|Windows Phone/i.test(navigator.userAgent)) {
+      window.location.href = "https://local.mob.unicorner.uz";
+    }
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Unicorner Times</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="photo_2025-03-14_04-25-25.png" />
+</head>
+<body>
+ <div id="splash">
+  <div class="loader"></div>
+</div>
+
+<div class="overlay" id="popupOverlay">
+  <div class="popup">
+    <h2>Bildirishnoma</h2>
+    <p>We no longer encourage you to sign up/sign in. As a loyal open-source, we contribute community workshop.</p>
+    <button onclick="closePopup()">OK</button>
+  </div>
+</div>
+
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-left">
+  <a href="index.html" class="logo">The Unicorner Times</a>
+</div>
+    <div class="nav-right" id="nav-links">
+<a href="about.html">About</a>
+<a href="https://book.unicorner.uz" target="_blank">Books</a>
+<a href="https://research.unicorner.uz" target="_blank">Research</a>
+<a href="https://article.unicorner.uz" target="_blank">Articles</a>
+<a href="https://publish.unicorner.uz">Publish</a>
+      
+<a href="index.html">EN</a>
+  <a href="indexuz.html">UZ</a>
+    </div>
+<div class="menu-btn" id="menu-btn">
+      &#9776; <!-- Hamburger icon -->
+</div>
+  </nav>
+
+  <!-- Header / Hero -->
+  <header class="hero">
+    <h1 class="hero-title">Welcome to  The&ndash;UCN&ndash;Times</h1>
+    <p class="hero-subtitle">Sharing ideas, stories, and thoughts &ndash; one post at a time.</p>
+    <form class="subscribe-form">
+      <input type="email" placeholder="Enter your email" required />
+      <button type="submit">Proceed</button>
+    </form>
+  </header>
+  <!-- Blog Section -->
+  <main class="blog-container" id="blog-container">
+    <!-- Posts will be injected by JS -->
+  </main>
+    <footer class="footer">
+    <p>&copy; 2025 All Rights Reserved </p>
+  </footer>
+  
+  <script src="script.js"></script>
+  <script>
+     setTimeout(() => {
+  document.getElementById("splash").style.display = "none";
+  document.getElementById("content").style.display = "flex";
+}, 2000); //  2 seconds
+    importScripts("https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.sw.js");
+
+  // Show popup when page loads
+  window.addEventListener('load', function() {
+    // Hide splash after page loads
+    document.getElementById("splash").style.display = "none";
+
+    // Show popup
+    document.getElementById("popupOverlay").style.display = "flex";
+  });
+
+  function closePopup() {
+    document.getElementById("popupOverlay").style.display = "none";
+  }
+    const menuBtn = document.getElementById("menu-btn");
+  const navLinks = document.getElementById("nav-links");
+
+  menuBtn.onclick = () => {
+    navLinks.classList.toggle("show");
+    console.log("Menu toggled"); // Debugging
+  };
+</script>
+</body>
+</html>
